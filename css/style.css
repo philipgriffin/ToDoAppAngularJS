@@ -1,0 +1,34 @@
+.card-content .card-title, .card-content li input {
+    font-weight: 200 !important;
+    border: none;
+    letter-spacing: 2px;
+}
+
+.card-content ul{
+    margin-top: 30px;
+}
+
+
+.card-content li{
+    height: 40px;
+    display: block;
+}
+
+.card-content li *{
+}
+
+.card-content li input{
+    height: 1.6rem !important;
+    font-size: 0.9em;
+}
+
+.card-content li input{
+    height: 1.4rem !important;
+    font-size: 0.9em;
+    color: #9e9e9e;
+}
+
+.card-content li i{
+    font-size: 20px;
+    cursor: pointer;
+}
