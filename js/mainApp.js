@@ -27,4 +27,9 @@ $scope.slide = function(){
     console.log('fsfds');
 
 }
+
+   $scope.update=function(){
+       componentHandler.upgradeDom();
+
+    };
  }

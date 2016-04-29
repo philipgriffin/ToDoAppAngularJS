@@ -30,4 +30,21 @@
     }
     .mdl-card__supporting-text {
     color: #9e9e9e;
+    width: auto !important;
+    }
+
+    #todoTable {
+        width:100%;
+    }
+
+    #todoTable tbody tr td {
+          text-align: left;
+    }
+
+    #todoTable tbody tr .todoText {
+        text-align: left;
+    }
+
+    #todoTable tbody tr .todoDel {
+       text-align: right;
     }

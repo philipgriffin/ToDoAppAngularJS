@@ -22,18 +22,46 @@
             <label class="mdl-textfield__label" for="sample1">List title...</label>
         </div>
     </div>
+
         <div class="lowerContent mdl-card__supporting-text">
 
+            <table id="todoTable" class="">
+                <thead>
+                <tr style="display:none;">
+                    <th class="mdl-data-table__cell--non-numeric"></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
 
+                <tr ng-repeat="todo in list.todos">
+                    <td class="todoChk">
+                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-{{todo.id}}">
+                            <input type="checkbox" id="checkbox-{{todo.id}}" class="mdl-checkbox__input" checked>
+                        </label>
+
+                    </td>
+                    <td class="todoText">
+                        <input value="{{todo.text}}" class="mdl-textfield__input" type="text" id="todoInput-{{todo.id}}">
+                        <label class="mdl-textfield__label" for="todoInput-{{todo.id}}">List title...</label>
+                    </td>
+                    <td class="todoDel"><i class="material-icons">delete</i></td>
+                    <span ng-if="$last" ng-init="update()"></span>
+                </tr>
+
+                </tbody>
+            </table>
 
         </div>
+
         <div class="lowerContent mdl-card__actions mdl-card--border">
             <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                 <i class="material-icons">add</i>
             </a>
         </div>
         <div class="mdl-card__menu">
-            <button ng-click="slide()" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+            <button ng-click="update()" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
                 <i class="material-icons">arrow_drop_down</i>
             </button>
         </div>
@@ -47,5 +75,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 <!-- mainApp JS import -->
 <script src="js/mainApp.js"></script>
+
+<script>
+
+</script>
 </body>
 </html>
