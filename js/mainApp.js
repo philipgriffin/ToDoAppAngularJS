@@ -16,15 +16,4 @@ function MainController($scope) {
       completed: 0
     }]
     };
-<<<<<<< HEAD
-=======
-
-$scope.slide = function(){
-    var lowerContent = $('.lowerContent');
-
-    (lowerContent.css('display') === 'none') ? lowerContent.slideDown() : lowerContent.slideUp();
-    console.log('fsfds');
-
-}
->>>>>>> parent of c3f91b5... Mdl Table added
  }

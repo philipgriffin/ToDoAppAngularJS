@@ -8,8 +8,6 @@
     margin-top: 30px;
 }
 
-<<<<<<< HEAD
-
 .card-content li{
     height: 40px;
     display: block;
@@ -33,14 +31,3 @@
     font-size: 20px;
     cursor: pointer;
 }
-=======
-    .demo-card-wide > .mdl-card__title {
-    height: 70px;
-    }
-    .lowerContent > .mdl-card__menu {
-    color: #ffab40;
-    }
-    .mdl-card__supporting-text {
-    color: #9e9e9e;
-    }
->>>>>>> parent of c3f91b5... Mdl Table added
