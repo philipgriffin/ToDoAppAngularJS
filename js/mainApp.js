@@ -16,4 +16,12 @@ function MainController($scope) {
       completed: 0
     }]
     };
+
+    $scope.addTodo = function() {
+        $scope.list.todos.push({
+              id: $scope.list.todos.length,
+              text: 'Type stuff here',
+              completed: 0
+        });
+    }
  }
