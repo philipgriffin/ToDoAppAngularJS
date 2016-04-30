@@ -23,12 +23,12 @@
                 <input type="text" value="{{list.listTitle}}" class="card-title"/>
                 <table>
                     <tbody>
-                    <tr>
+                    <tr ng-repeat="todo in list.todos">
                         <td class="checkboxCol">
-                            <input id="test" type="checkbox"/><label class="" for="test"></label>
+                            <input id="chk{{$index}}" type="checkbox"/><label class="" for="chk{{$index}}"></label>
                         </td>
                         <td class="textCol">
-                            <input value="this is just a test" class="todoInput" type="text" />
+                            <input value="{{todo.text}}" class="todoInput" type="text" />
                         </td>
                         <td class="delCol right-align">
                             <i class="material-icons white-text">delete</i>
@@ -38,7 +38,7 @@
                 </table>
             </div>
             <div class="card-action right-align">
-                <a href="#"><i class="material-icons">list</i></a>
+                <a href="#"><i class="material-icons">add_box</i></a>
             </div>
         </div>
     </div>

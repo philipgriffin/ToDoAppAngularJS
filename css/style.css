@@ -23,3 +23,12 @@ table tbody tr .textCol{
     width: 90%;
 }
 
+.card-action a {
+    margin-right: 0px !important;
+
+}
+
+.card-action a i {
+    padding: 0px 5px;
+
+}
