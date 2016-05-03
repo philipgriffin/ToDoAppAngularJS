@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <meta charset="UTF-8">
+    <meta name="theme-color" content="#9e9e9e">
     <title>Angular To-do</title>
 </head>
 <body ng-controller="MainController">
@@ -23,12 +24,16 @@
                 <input type="text" value="{{list.listTitle}}" class="card-title"/>
                 <table>
                     <tbody>
+                    <div ng-show="list.todos.length <= 0">
+                        <span class="sadFace">:(</span>
+                        <p>You have no tasks... add one!</p>
+                    </div>
                     <tr ng-repeat="todo in list.todos">
                         <td class="checkboxCol">
-                            <input id="chk{{$index}}" type="checkbox"/><label class="" for="chk{{$index}}"></label>
+                            <input id="chk{{$index}}" type="checkbox"/><label for="chk{{$index}}"></label>
                         </td>
                         <td class="textCol">
-                            <input value="{{todo.text}}" class="todoInput" type="text" />
+                            <input placeholder="Task text here..." id="todoInput{{$index}}" value="{{todo.text}}" class="todoInput" type="text" init-focus/>
                         </td>
                         <td class="delCol right-align">
                             <i class="material-icons white-text">delete</i>
