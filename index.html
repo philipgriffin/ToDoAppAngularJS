@@ -30,10 +30,10 @@
                     </div>
                     <tr ng-repeat="todo in list.todos">
                         <td class="checkboxCol">
-                            <input id="chk{{$index}}" type="checkbox"/><label for="chk{{$index}}"></label>
+                            <input class="filled-in" id="chk{{$index}}" type="checkbox"/><label for="chk{{$index}}"></label>
                         </td>
                         <td class="textCol">
-                            <input placeholder="Task text here..." id="todoInput{{$index}}" value="{{todo.text}}" class="todoInput" type="text" init-focus/>
+                            <input placeholder="Task text here..." id="todoInput{{$index}}" value="{{todo.text}}" class="todoInput" type="text"/>
                         </td>
                         <td class="delCol right-align">
                             <i class="material-icons white-text">delete</i>

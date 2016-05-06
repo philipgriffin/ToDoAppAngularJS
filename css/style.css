@@ -1,3 +1,8 @@
+.card-content {
+    min-height: 100px !important;
+    transition: min-height 0.25s ease-in;
+}
+
 .card-content .card-title, .card-content li input {
     font-weight: 200 !important;
     border: none;
