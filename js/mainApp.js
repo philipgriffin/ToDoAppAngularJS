@@ -20,8 +20,8 @@ function MainController($scope) {
               completed: 0
         });
         var cardContent = $('.card-content'),
-            cardContentHeight = cardContent.height();
-
-            cardContent.css({'height': (cardContentHeight+100) });
+            cardContentHeight = cardContent.height(),
+            heightToBeAdded = cardContentHeight + 100;
+            cardContent.css({'height': (heightToBeAdded) });
     }
  }
