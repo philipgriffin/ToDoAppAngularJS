@@ -1,6 +1,5 @@
 .card-content {
-    min-height: 100px !important;
-    height: auto;
+    height: 100px;
     transition: all 0.25s ease-in;
     -webkit-transition: all 0.25s ease-in;
     -moz-transition: height 0.25s ease-in;
