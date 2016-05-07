@@ -7,7 +7,7 @@
 
     <!-- Materialize CSS import -->
     <link rel="stylesheet" type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.css">
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.css">
     <!-- Material-icons FONT import -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -24,10 +24,10 @@
                 <input type="text" value="{{list.listTitle}}" class="card-title"/>
                 <table>
                     <tbody>
-                    <div ng-show="list.todos.length <= 0">
-                        <span class="sadFace">:(</span>
-                        <p>You have no tasks... add one!</p>
-                    </div>
+                    <!--<div ng-show="list.todos.length <= 0">-->
+                        <!--<span class="sadFace">:(</span>-->
+                        <!--<p>You have no tasks... add one!</p>-->
+                    <!--</div>-->
                     <tr ng-repeat="todo in list.todos">
                         <td class="checkboxCol">
                             <input class="filled-in" id="chk{{$index}}" type="checkbox"/><label for="chk{{$index}}"></label>

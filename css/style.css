@@ -1,6 +1,11 @@
 .card-content {
     min-height: 100px !important;
-    transition: min-height 0.25s ease-in;
+    height: auto;
+    transition: all 0.25s ease-in;
+    -webkit-transition: all 0.25s ease-in;
+    -moz-transition: height 0.25s ease-in;
+    -o-transition: height 0.25s ease-in;
+    transition: height 0.25s ease-in;
 }
 
 .card-content .card-title, .card-content li input {
@@ -8,6 +13,7 @@
     border: none;
     letter-spacing: 2px;
 }
+
 
 table tbody tr .todoInput {
     margin-bottom: 0px;

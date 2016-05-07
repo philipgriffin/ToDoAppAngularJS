@@ -3,6 +3,10 @@ angular.module('toDoApp', [])
 
 
 function MainController($scope) {
+    $scope.save = function() {
+        alert('dsads');
+    }
+
     $scope.list = {
     listTitle: "My List",
     todos : [
@@ -15,5 +19,9 @@ function MainController($scope) {
               text: 'Type stuff here',
               completed: 0
         });
+        var cardContent = $('.card-content'),
+            cardContentHeight = cardContent.height();
+
+            cardContent.css({'height': (cardContentHeight+100) });
     }
  }
