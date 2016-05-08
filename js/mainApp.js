@@ -4,7 +4,8 @@ angular.module('toDoApp', [])
 
 function MainController($scope) {
     $scope.save = function() {
-        alert('dsads');
+        // save to do
+        $('input[type="text"]').blur();
     }
 
     $scope.list = {
@@ -16,7 +17,7 @@ function MainController($scope) {
     var newId = $scope.list.todos.length;
         $scope.list.todos.push({
               id: newId,
-              text: 'Type stuff here',
+              text: '',
               completed: 0
         });
         var cardContent = $('.card-content'),

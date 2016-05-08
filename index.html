@@ -33,7 +33,9 @@
                             <input class="filled-in" id="chk{{$index}}" type="checkbox"/><label for="chk{{$index}}"></label>
                         </td>
                         <td class="textCol">
-                            <input placeholder="Task text here..." id="todoInput{{$index}}" value="{{todo.text}}" class="todoInput" type="text"/>
+                            <form ng-submit="save()">
+                                <input ng-model="text" placeholder="Task text here..." id="todoInput{{$index}}" value="{{todo.text}}" class="todoInput" type="text"/>
+                            </form>
                         </td>
                         <td class="delCol right-align">
                             <i class="material-icons white-text">delete</i>

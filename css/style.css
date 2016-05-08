@@ -38,7 +38,16 @@ table tbody tr .checkboxCol label {
 }
 
 table tbody tr .textCol{
+
     width: 90%;
+}
+
+table tbody tr .textCol form {
+    margin:0;
+}
+
+table tbody tr .textCol form input {
+    color: #FFFFFF;
 }
 
 .card-action a {
@@ -48,7 +57,7 @@ table tbody tr .textCol{
 
 .card-action a i {
     padding: 0px 5px;
-
+    cursor: pointer;
 }
 
 .card-content .sadFace {
@@ -65,3 +74,4 @@ table tbody tr .textCol{
     width:100%;
     text-align: center;
 }
+
