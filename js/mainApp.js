@@ -5,6 +5,7 @@ angular.module('toDoApp', [])
 function MainController($scope) {
     $scope.save = function() {
         // save to do
+        console.log($scope.list);
         $('input[type="text"]').blur();
     }
 
