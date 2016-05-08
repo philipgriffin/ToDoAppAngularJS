@@ -36,11 +36,11 @@
                         </td>
                         <td class="textCol">
                             <form ng-submit="save()">
-                                <input ng-model="todo.text" placeholder="Task text here..." id="todoInput{{$index}}" class="todoInput" type="text"/>
+                                <input ng-model="todo.text" placeholder="Task text here..." class="todoInput" type="text"/>
                             </form>
                         </td>
                         <td class="delCol right-align">
-                            <i class="material-icons white-text">delete</i>
+                            <i ng-click="deleteTask($index)" class="material-icons white-text">delete</i>
                         </td>
                     </tr>
                     </tbody>

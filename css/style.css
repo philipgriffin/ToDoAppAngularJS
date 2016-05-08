@@ -1,3 +1,7 @@
+i {
+    cursor: pointer;
+}
+
 .card-content {
     height: 100px;
     transition: all 0.25s ease-in;
@@ -75,3 +79,6 @@ table tbody tr .textCol form input {
     text-align: center;
 }
 
+.completed {
+    
+}

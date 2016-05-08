@@ -1,18 +1,17 @@
 angular.module('toDoApp', [])
 .controller('MainController', ['$scope', MainController]);
 
-
 function MainController($scope) {
+    $scope.list = {
+        listTitle: "My List",
+        todos : [
+    ]};
+
     $scope.save = function() {
         // save to do
         console.log($scope.list);
         $('input[type="text"]').blur();
     }
-
-    $scope.list = {
-    listTitle: "My List",
-    todos : [
-    ]};
 
     $scope.addTodo = function() {
     var newId = $scope.list.todos.length;
@@ -21,9 +20,19 @@ function MainController($scope) {
               text: '',
               completed: 0
         });
+        $scope.animateCard(100);
+    }
+
+    $scope.deleteTask = function(taskNumber) {
+        $('');
+        $scope.list.todos.splice(taskNumber, 1);
+        $scope.animateCard(-20);
+    }
+
+    $scope.animateCard = function(val) {
         var cardContent = $('.card-content'),
             cardContentHeight = cardContent.height(),
-            heightToBeAdded = cardContentHeight + 100;
-            cardContent.css({'height': (heightToBeAdded) });
+            heightToBeAdded = cardContentHeight + val;
+        cardContent.css({'height': (heightToBeAdded) });
     }
  }
