@@ -18,13 +18,12 @@ function MainController($scope) {
         $scope.list.todos.push({
               id: newId,
               text: '',
-              completed: 0
+              completed: false
         });
         $scope.animateCard(100);
     }
 
     $scope.deleteTask = function(taskNumber) {
-        $('');
         $scope.list.todos.splice(taskNumber, 1);
         $scope.animateCard(-20);
     }
