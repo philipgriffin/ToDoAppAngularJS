@@ -22,7 +22,11 @@
         <div class="card blue-grey darken-1">
             <div class="card-content white-text">
                 <form ng-submit="save()">
-                    <input ng-model="list.listTitle" type="text" class="card-title"/>
+                    <input ng-model="list.listTitle" type="text" class="card-title"
+                           ng-init="disabled = true"
+                           ng-readonly="disabled"
+                           ng-dblclick="disabled = false"
+                           ng-blur="disabled = true"/>
                 </form>
                 <table>
                     <tbody>
@@ -37,7 +41,13 @@
                         </td>
                         <td class="textCol">
                             <form ng-submit="save()">
-                                <input ng-model="todo.text" placeholder="Task text here..." ng-class="{completed : todo.completed}" class="todoInput" type="text"/>
+                                <input placeholder="Task text here..." class="todoInput" type="text"
+                                       ng-init="disabled = true"
+                                        ng-readonly="disabled"
+                                        ng-dblclick="disabled = false"
+                                        ng-model="todo.text"
+                                        ng-blur="disabled = true"
+                                       ng-class="{completed : todo.completed}"/>
                             </form>
                         </td>
                         <td class="delCol right-align">

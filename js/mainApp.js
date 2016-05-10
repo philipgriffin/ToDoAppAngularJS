@@ -34,4 +34,8 @@ function MainController($scope) {
             heightToBeAdded = cardContentHeight + val;
         cardContent.css({'height': (heightToBeAdded) });
     }
+
+    $scope.enableInput = function() {
+        console.log('test');
+    }
  }
