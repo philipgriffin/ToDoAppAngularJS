@@ -2,14 +2,19 @@ angular.module('toDoApp', [])
 .controller('MainController', ['$scope', MainController]);
 
 function MainController($scope) {
+
+    if(localStorage.test) {
+    $scope.list = JSON.parse(localStorage.test);
+    } else {
     $scope.list = {
         listTitle: "My List",
         todos : [
     ]};
+    }
 
     $scope.save = function() {
-        // save to do
-        console.log($scope.list);
+        localStorage.test = JSON.stringify($scope.list);
+        console.log(JSON.stringify($scope.list));
         $('input[type="text"]').blur();
     }
 
@@ -20,22 +25,19 @@ function MainController($scope) {
               text: '',
               completed: false
         });
-        $scope.animateCard(100);
+        //$scope.animateCard(100);
     }
 
     $scope.deleteTask = function(taskNumber) {
         $scope.list.todos.splice(taskNumber, 1);
-        $scope.animateCard(-20);
+        localStorage.test = JSON.stringify($scope.list);
+        //$scope.animateCard(-20);
     }
 
-    $scope.animateCard = function(val) {
-        var cardContent = $('.card-content'),
-            cardContentHeight = cardContent.height(),
-            heightToBeAdded = cardContentHeight + val;
-        cardContent.css({'height': (heightToBeAdded) });
-    }
-
-    $scope.enableInput = function() {
-        console.log('test');
-    }
+//    $scope.animateCard = function(val) {
+//        var cardContent = $('.card-content'),
+//            cardContentHeight = cardContent.height(),
+//            heightToBeAdded = cardContentHeight + val;
+//        cardContent.css({'height': (heightToBeAdded) });
+//    }
  }

@@ -34,7 +34,7 @@
                         <!--<span class="sadFace">:(</span>-->
                         <!--<p>You have no tasks... add one!</p>-->
                     <!--</div>-->
-                    <tr ng-repeat="todo in list.todos | orderBy:'completed':false">
+                    <tr ng-repeat="todo in list.todos">
                         <td class="checkboxCol">
                             <input ng-model="todo.completed" class="filled-in" id="chk{{$index}}" type="checkbox" ng-checked="todo.completed" />
                             <label for="chk{{$index}}"></label>
@@ -66,11 +66,15 @@
 
 <!-- Jquery JS import -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<!-- Velocity JS import -->
+<!--<script src="js/velocity.min.js"></script>-->
 <!-- Materialize JS import -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 <!-- AngularJS JS import -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 <!-- mainApp JS import -->
 <script src="js/mainApp.js"></script>
+<script src="js/jqAnimateImprove.js"></script>
+
 </body>
 </html>
