@@ -1,7 +1,7 @@
 angular.module('toDoApp')
-    .controller('$scope', MainController);
+    .controller('MainController', ['$scope', 'SessionManagement', MainController]);
 
-function MainController($scope) {
+function MainController($scope, SessionManagement) {
 
     if(localStorage.test) {
         $scope.list = JSON.parse(localStorage.test);
