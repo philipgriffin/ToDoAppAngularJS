@@ -1,1 +1,1 @@
-angular.module('toDoApp', []);
+angular.module('toDoApp', ['ngStorage']);

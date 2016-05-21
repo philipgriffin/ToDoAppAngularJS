@@ -1,26 +1,23 @@
 angular.module('toDoApp')
-    .controller('MainController', ['$scope', 'SessionManagement', MainController]);
+    .controller('MainController', ['$scope', '$localStorage', MainController]);
 
-function MainController($scope, SessionManagement) {
+function MainController($scope, $localStorage) {
+    $scope.$storage = $localStorage;
+    console.log($scope.$storage.test);
 
-    if(localStorage.test) {
-        $scope.list = JSON.parse(localStorage.test);
+    if($scope.$storage.list) {
+        $scope.$storage.list = $scope.$storage.list;
     } else {
-        $scope.list = {
+        $scope.$storage.list = {
             listTitle: "My List",
             todos : [
             ]};
     }
 
-    $scope.save = function() {
-        localStorage.test = JSON.stringify($scope.list);
-        console.log(JSON.stringify($scope.list));
-        $('input[type="text"]').blur();
-    };
-
     $scope.addTodo = function() {
-        var newId = $scope.list.todos.length;
-        $scope.list.todos.push({
+        console.log($scope.$storage);
+        var newId = $scope.$storage.list.todos.length;
+        $scope.$storage.list.todos.push({
             id: newId,
             text: '',
             completed: false
@@ -28,9 +25,11 @@ function MainController($scope, SessionManagement) {
         //$scope.animateCard(100);
     };
 
+
+    // TODO: Delete function should use indexOf
     $scope.deleteTask = function(taskNumber) {
         $scope.list.todos.splice(taskNumber, 1);
-        localStorage.test = JSON.stringify($scope.list);
+        $scope.$storage.list = $scope.list;
         //$scope.animateCard(-20);
     };
 
