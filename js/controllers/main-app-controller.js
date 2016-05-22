@@ -25,9 +25,23 @@ function MainController($scope, $localStorage) {
         //$scope.animateCard(100);
     };
 
+    $scope.addList = function () {
+        $scope.$storage.list.push({
+                listTitle: "My List 1",
+                todos: []
+        });
+        //$scope.animateCard(100);
+    };
+
     $scope.deleteTask = function (list, task) {
         var todoIndex = list.todos.indexOf(task);
         list.todos.splice(todoIndex, 1);
+        //$scope.animateCard(-20);
+    };
+
+    $scope.delList = function (list) {
+        var listIndex = $scope.$storage.list.indexOf(list);
+        $scope.$storage.list.splice(listIndex, 1);
         //$scope.animateCard(-20);
     };
 

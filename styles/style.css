@@ -94,3 +94,9 @@ table tbody tr .textCol form input[readonly] {
     font-style: italic;
     color: #9e9e9e !important;
 }
+
+#add-list-button {
+    position: absolute;
+    right: 3%;
+    bottom: 5%;
+}
