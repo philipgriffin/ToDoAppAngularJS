@@ -27,9 +27,9 @@ function MainController($scope, $localStorage) {
 
 
     // TODO: Delete function should use indexOf
-    $scope.deleteTask = function(taskNumber) {
-        $scope.list.todos.splice(taskNumber, 1);
-        $scope.$storage.list = $scope.list;
+    $scope.deleteTask = function(task) {
+        var index = $scope.$storage.list.todos.indexOf(task);
+        $scope.$storage.list.todos.splice(index, 1);
         //$scope.animateCard(-20);
     };
 
