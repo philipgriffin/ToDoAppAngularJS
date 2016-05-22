@@ -5,19 +5,19 @@ function MainController($scope, $localStorage) {
     $scope.$storage = $localStorage;
     console.log($scope.$storage.test);
 
-    if($scope.$storage.list) {
+    if ($scope.$storage.list) {
         $scope.$storage.list = $scope.$storage.list;
     } else {
-        $scope.$storage.list = {
-            listTitle: "My List",
-            todos : [
-            ]};
+        $scope.$storage.list = [
+            {
+                listTitle: "My List 1",
+                todos: []
+            }];
     }
 
-    $scope.addTodo = function() {
-        console.log($scope.$storage);
-        var newId = $scope.$storage.list.todos.length;
-        $scope.$storage.list.todos.push({
+    $scope.addTodo = function (list) {
+        var newId = list.todos.length;
+        list.todos.push({
             id: newId,
             text: '',
             completed: false
@@ -25,11 +25,9 @@ function MainController($scope, $localStorage) {
         //$scope.animateCard(100);
     };
 
-
-    // TODO: Delete function should use indexOf
-    $scope.deleteTask = function(task) {
-        var index = $scope.$storage.list.todos.indexOf(task);
-        $scope.$storage.list.todos.splice(index, 1);
+    $scope.deleteTask = function (list, task) {
+        var todoIndex = list.todos.indexOf(task);
+        list.todos.splice(todoIndex, 1);
         //$scope.animateCard(-20);
     };
 

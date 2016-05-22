@@ -20,10 +20,11 @@
 <div class="row">
 
     <div class="col s12 m6 l4">
-        <div class="card blue-grey darken-1">
+
+        <div ng-repeat="list in $storage.list" class="card blue-grey darken-1">
             <div class="card-content white-text">
                 <form ng-submit="">
-                    <input ng-model="$storage.list.listTitle" type="text" class="card-title"
+                    <input ng-model="list.listTitle" type="text" class="card-title"
                            ng-init="disabled = true"
                            ng-readonly="disabled"
                            ng-dblclick="disabled = false"
@@ -35,7 +36,7 @@
                         <!--<span class="sadFace">:(</span>-->
                         <!--<p>You have no tasks... add one!</p>-->
                     <!--</div>-->
-                    <tr ng-repeat="todo in $storage.list.todos">
+                    <tr ng-repeat="todo in list.todos">
                         <td class="checkboxCol">
                             <input ng-model="todo.completed" class="filled-in" id="chk{{$index}}" type="checkbox" ng-checked="todo.completed" />
                             <label for="chk{{$index}}"></label>
@@ -52,14 +53,14 @@
                             </form>
                         </td>
                         <td class="delCol right-align">
-                            <i ng-click="deleteTask(todo)" class="material-icons white-text">delete</i>
+                            <i ng-click="deleteTask(list, todo)" class="material-icons white-text">delete</i>
                         </td>
                     </tr>
                     </tbody>
                 </table>
             </div>
             <div class="card-action right-align">
-                <a ng-click="addTodo()"><i class="material-icons">add_box</i></a>
+                <a ng-click="addTodo(list)"><i class="material-icons">add_box</i></a>
             </div>
         </div>
     </div>
