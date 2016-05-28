@@ -66,7 +66,6 @@ table tbody tr .textCol form input[readonly] {
 
 .card-action a {
     margin-right: 0px !important;
-
 }
 
 .card-action a i {
@@ -96,7 +95,8 @@ table tbody tr .textCol form input[readonly] {
 }
 
 #add-list-button {
-    position: absolute;
-    right: 3%;
-    bottom: 5%;
+    position: fixed;
+    bottom: 45px;
+    right: 24px;
+    z-index: 100;
 }

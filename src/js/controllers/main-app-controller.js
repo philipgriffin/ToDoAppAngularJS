@@ -3,7 +3,6 @@ angular.module('toDoApp')
 
 function MainController($scope, $localStorage) {
     $scope.$storage = $localStorage;
-    console.log($scope.$storage.test);
 
     if ($scope.$storage.list) {
         $scope.$storage.list = $scope.$storage.list;
