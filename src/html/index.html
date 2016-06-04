@@ -3,22 +3,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Materialize CSS import -->
     <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.css">
 
     <!-- Material-icons FONT import -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- My Stylesheet CSS import -->
-    <link rel="stylesheet" type="text/css" href="../styles/style.css">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
 
     <meta charset="UTF-8">
     <meta name="theme-color" content="#9e9e9e">
     <title>Angular To-do</title>
 </head>
 <body ng-controller="MainController">
+
+<!-- Modal Trigger -->
+<div class="top-nav row">
+    <div class="col s12">
+        <i class="material-icons modal-trigger right" href="#modal1">settings</i>
+    </div>
+</div>
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <div class="row">
+            <h4><i class="material-icons">settings</i> Settings</h4>
+            <h5 title="Select a background image for your app">Background Image Selector</h5>
+            <img ng-click="changeBackground(bgImages.imageUrl)"
+                 style="width: 20%; height: 30%; margin: 10px 10px; border: 1px black dashed; cursor: pointer;"
+                 ng-repeat="bgImages in settings.backgroundImages" class="responsive-img" src="{{bgImages.imageUrl}}">
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Done</a>
+        </div>
+    </div>
+</div>
+
+<div id="modalDel" class="modal">
+    <div class="modal-content">
+        <div class="row">
+            <h4><i class="material-icons">error</i> But wait!</h4>
+            Are you sure you want to delete this list and all its contents?
+        </div>
+        <div class="modal-footer">
+            <a ng-click="delList()" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">
+                <i class="thumb-up material-icons">thumb_up</i>
+            </a>
+            <a ng-click="clearListToBeDel()" href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">
+                <i class="thumb-down material-icons">thumb_down</i>
+            </a>
+        </div>
+    </div>
+</div>
+
 <div class="row">
-    <div class="col s12 m6 l4">
-        <div ng-repeat="list in $storage.list" class="card blue-grey darken-1">
+    <div ng-repeat="list in $storage.list" class="col s12 m6 l4">
+        <div class="card blue-grey darken-1">
             <div class="card-content white-text">
                 <form ng-submit="">
                     <input ng-model="list.listTitle" type="text" class="card-title"
@@ -30,22 +70,23 @@
                 <table>
                     <tbody>
                     <!--<div ng-show="list.todos.length <= 0">-->
-                        <!--<span class="sadFace">:(</span>-->
-                        <!--<p>You have no tasks... add one!</p>-->
+                    <!--<span class="sadFace">:(</span>-->
+                    <!--<p>You have no tasks... add one!</p>-->
                     <!--</div>-->
                     <tr ng-repeat="todo in list.todos">
                         <td class="checkboxCol">
-                            <input ng-model="todo.completed" class="filled-in" id="chk{{$index}}" type="checkbox" ng-checked="todo.completed" />
-                            <label for="chk{{$index}}"></label>
+                            <input ng-model="todo.completed" class="filled-in" id="l{{$parent.$index}}chk{{$index}}"
+                                   type="checkbox" ng-checked="todo.completed"/>
+                            <label for="l{{$parent.$index}}chk{{$index}}"></label>
                         </td>
                         <td class="textCol">
                             <form ng-submit="">
                                 <input placeholder="Task text here..." class="todoInput" type="text"
                                        ng-init="disabled = true"
-                                        ng-readonly="disabled"
-                                        ng-dblclick="disabled = false"
-                                        ng-model="todo.text"
-                                        ng-blur="disabled = true"
+                                       ng-readonly="disabled"
+                                       ng-dblclick="disabled = false"
+                                       ng-model="todo.text"
+                                       ng-blur="disabled = true"
                                        ng-class="{completed : todo.completed}"/>
                             </form>
                         </td>
@@ -58,20 +99,22 @@
             </div>
             <div class="card-action right-align">
                 <a ng-click="addTodo(list)"><i class="material-icons">add_box</i></a>
-                <a ng-click="delList(list)"><i class="material-icons">delete</i></a>
+                <a ng-click="confirmDialog(list)"><i class="material-icons">delete</i></a>
             </div>
         </div>
     </div>
 
 </div>
 
-<a ng-click="addList()" id="add-list-button" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+<a ng-click="addList()" id="add-list-button" class="btn-floating btn-large waves-effect waves-light red"><i
+        class="material-icons">add</i></a>
 
 
 <!-- Jquery JS import -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <!-- Materialize JS import -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 <!-- AngularJS JS import -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 
@@ -79,7 +122,12 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
 
 <!-- scripts.min.js JS import -->
-<script src="../scripts/scripts.min.js"></script>
-
+<script src="scripts/scripts.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal();
+    });
+</script>
 </body>
 </html>

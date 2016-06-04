@@ -36,7 +36,7 @@ gulp.task('css', function () {
 });
 
 gulp.task('serve', function() {
-    browserSync({
+    browserSync.init([paths.srcJs], {
         server: {
             baseDir: paths.distRoot
         }

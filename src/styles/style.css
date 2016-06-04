@@ -1,5 +1,4 @@
 body {
-    background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/school.png");
 }
 
 i {
@@ -99,4 +98,61 @@ table tbody tr .textCol form input[readonly] {
     bottom: 45px;
     right: 24px;
     z-index: 100;
+}
+
+.top-nav {
+    background-color: #eff3ef;
+    height: 40px;
+    margin-bottom: 0px;
+    opacity: .4;
+}
+
+.top-nav i {
+    font-size: 40px;
+    opacity: 0.2;
+    -webkit-transition: opacity .25s ease-in-out;
+    color: #604a44;
+    transform: rotate(-180deg);
+
+    transition: all .7s ease-in-out;
+}
+
+.top-nav i:hover {
+    font-size: 40px;
+    opacity: 1;
+    -webkit-transition: opacity .25s ease-in-out;
+    transform: rotate(180deg);
+
+    transition: all .7s ease-in-out;
+}
+
+#modalDel i {
+  color: #F44336;
+}
+
+#modalDel .modal-footer i {
+  font-size: 25px;
+}
+
+#modalDel .modal-footer a {
+    border: 1px #eee solid;
+    margin: 0px 5px;
+}
+
+#modalDel .modal-footer i.thumb-up {
+    color: green;
+}
+
+#modalDel .modal-footer i.thumb-down {
+    color: red;
+}
+
+#toast-container {
+
+}
+
+.toast {
+
+
+
 }
