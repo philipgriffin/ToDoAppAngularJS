@@ -73,6 +73,7 @@ function MainController($scope, $localStorage) {
         }
     };
 
+    
     $scope.deleteTask = function (list, task) {
         var todoIndex = list.todos.indexOf(task);
         list.todos.splice(todoIndex, 1);
@@ -83,7 +84,7 @@ function MainController($scope, $localStorage) {
         $('#modalDel').openModal();
         $scope.listToDelete = item;
     };
-    
+
     $scope.delList = function () {
         var listIndex = $scope.$storage.list.indexOf($scope.listToDelete);
         $scope.$storage.list.splice(listIndex, 1);
