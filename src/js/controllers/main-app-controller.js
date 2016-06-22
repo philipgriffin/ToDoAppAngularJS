@@ -12,8 +12,7 @@ function MainController($scope, $localStorage) {
         $('body').css('background', 'url("'+ imageUrl +'")');
         $scope.$storage.backgroundImage = imageUrl;
     };
-
-
+    
     $scope.settings = {
         backgroundImages: [
             {
@@ -58,7 +57,6 @@ function MainController($scope, $localStorage) {
             text: '',
             completed: false
         });
-        //$scope.animateCard(100);
     };
 
 
@@ -67,7 +65,6 @@ function MainController($scope, $localStorage) {
             listTitle: "List Title",
             todos: []
         });
-        //$scope.animateCard(100);
         if (!$('.toast').length) {
             Materialize.toast('New list added!', 2000);
         }
@@ -77,7 +74,6 @@ function MainController($scope, $localStorage) {
     $scope.deleteTask = function (list, task) {
         var todoIndex = list.todos.indexOf(task);
         list.todos.splice(todoIndex, 1);
-        //$scope.animateCard(-20);
     };
 
     $scope.confirmDialog = function(item) {
@@ -94,10 +90,4 @@ function MainController($scope, $localStorage) {
         }
     };
 
-//    $scope.animateCard = function(val) {
-//        var cardContent = $('.card-content'),
-//            cardContentHeight = cardContent.height(),
-//            heightToBeAdded = cardContentHeight + val;
-//        cardContent.styles({'height': (heightToBeAdded) });
-//    }
 }
