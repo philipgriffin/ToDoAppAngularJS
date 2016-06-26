@@ -3,19 +3,30 @@ var gulp        = require('gulp'),
     watch       = require('gulp-watch'),
     concat      = require('gulp-concat'),
     rename      = require('gulp-rename'),
-    uglify      = require('gulp-uglify');
+    uglify      = require('gulp-uglify'),
+    templateCache = require('gulp-angular-templatecache');
 
 var paths = {
+    mainModule: 'toDoApp',
     distRoot: "dist/",
     distScripts: "dist/scripts",
     distCss: "dist/styles",
+    distTemplates: 'dist/templates',
     srcJs: "src/js/**/*.js",
     srcHtml: "src/html/*.html",
-    srcCss: "src/styles/*.css"
+    srcCss: "src/styles/*.css",
+    srcTemplates: 'src/js/directives/*.html'
 };
 
-gulp.task('scripts', function() {
-    return gulp.src(paths.srcJs)
+
+gulp.task('templates', function() {
+    return gulp.src(paths.srcTemplates)
+        .pipe(templateCache({module: paths.mainModule}))
+        .pipe(gulp.dest(paths.distTemplates));
+});
+
+gulp.task('scripts', ['templates'], function() {
+    return gulp.src([paths.srcJs, paths.distTemplates + '/templates.js'])
         .pipe(concat('scripts.js'))
         .pipe(gulp.dest(paths.distScripts))
         .pipe(rename('scripts.min.js'))

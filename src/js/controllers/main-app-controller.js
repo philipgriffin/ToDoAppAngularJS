@@ -12,7 +12,7 @@ function MainController($scope, $localStorage) {
         $('body').css('background', 'url("'+ imageUrl +'")');
         $scope.$storage.backgroundImage = imageUrl;
     };
-    
+
     $scope.settings = {
         backgroundImages: [
             {
@@ -89,5 +89,4 @@ function MainController($scope, $localStorage) {
             Materialize.toast('List removed!', 2000);
         }
     };
-
 }
